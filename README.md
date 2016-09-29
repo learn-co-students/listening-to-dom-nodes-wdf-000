@@ -165,7 +165,6 @@ We covered a lot in this lesson. Feel free to edit `index.html`, to write code d
 
 You should now understand how to add an event listener, how different event triggers work, and how to intercept user interactions with `e.preventDefault()` and `e.stopPropagation().`
 
-
 ## Resources
 
 - [MDN - Web Events](https://developer.mozilla.org/en-US/docs/Web/Events)
