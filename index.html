@@ -1,41 +1,119 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
-  <head>
-    <title>Listening to Nodes</title>
-    <style>
-     div {
-       border: 1px solid red;
-       padding: 6px;
-       min-height: 12px;
-     }
-    </style>
-  </head>
 
-  <body>
-    <main id="main">My ID is "main"!</main>
+<head>
+  <title>Listening to Nodes</title>
+  <style>
+    div {
+      border: 1px solid red;
+      padding: 6px;
+      min-height: 12px;
+    }
+  </style>
+</head>
 
-    <br />
+<body>
+  <main id="main">My ID is "main"!</main>
 
+  <br />
+
+  <div>
+    <label>Input:</label><input />
+  </div>
+
+  <br />
+
+  <div>
+    1
     <div>
-      <label>Input:</label><input />
-    </div>
-
-    <br />
-
-    <div>
-      1
+      2
       <div>
-        2
+        3
         <div>
-          3
+          4
           <div>
-            4
-            <div>
-              5
-            </div>
+            5
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+
+
+  <!-- These are just for demonstration purposes. Having them all like this would cause weird behavior -->
+  <script>
+    const main = document.getElementById('main');
+
+    main.addEventListener('click', function(event) {
+      alert('I was clicked!');
+    });
+  </script>
+
+  <script>
+    // Will listen for all keydown events inside of inputs
+    const input = document.querySelector('input')
+
+    input.addEventListener('keydown', function(e) {
+      console.log(e.which)
+    })
+
+    // This one will cause the letter 'g' to stop working inside inputs using .preventDefault()
+    const input = document.querySelector('input')
+
+    input.addEventListener('keydown', function(e) {
+      if (e.which === 71) {
+        return e.preventDefault()
+      }
+    })
+  </script>
+
+  <script>
+    // bubbling
+    const divs = document.querySelectorAll('div')
+
+    function bubble(e) {
+      // remember all of those fancy DOM node properties?
+      // we're making use of them to get the number
+      // in each div here!
+
+      // if `this` is a bit confusing, don't worry —
+      // for now, know that it refers to the div that
+      // is triggering the current event handler.
+      console.log(this.firstChild.nodeValue.trim() + ' bubbled')
+    }
+
+    for (let i = 0, l = divs.length; i < l; i++) {
+      divs[i].addEventListener('click', bubble)
+    }
+
+    // capturing
+    const divs = document.querySelectorAll('div')
+
+    function capture(e) {
+      console.log(this.firstChild.nodeValue.trim() + ' captured')
+    }
+
+    for (let i = 0, l = divs.length; i < l; i++) {
+      // set the third argument to `true`!
+      divs[i].addEventListener('click', capture, true)
+    }
+  </script>
+
+  <script>
+    // Using .stopPropagation()
+    const divs = document.querySelectorAll('div')
+
+    function bubble(e) {
+      // stop! that! propagation!
+      e.stopPropagation()
+
+      console.log(this.firstChild.nodeValue.trim() + ' bubbled')
+    }
+
+    for (let i = 0, l = divs.length; i < l; i++) {
+      divs[i].addEventListener('click', bubble)
+    }
+  </script>
+</body>
+
 </html>
