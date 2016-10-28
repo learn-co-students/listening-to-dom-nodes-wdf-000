@@ -1,15 +1,18 @@
 {
-  "name": "listening-to-nodes",
+  "name": "konami-code-lab",
   "version": "0.1.0",
-  "description": "Introduction to adding event listeners to DOM nodes",
+  "description": "Using event listeners, implement the Konami Code on a page",
   "engines": {
     "node": "6.x",
     "npm": "3.x"
   },
   "main": "index.js",
+  "scripts": {
+    "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json"
+  },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/learn-co-curriculum/listening-to-nodes.git"
+    "url": "git+ssh://git@github.com/learn-co-curriculum/konami-code-lab.git"
   },
   "keywords": [
     "javascript",
@@ -19,11 +22,11 @@
   "author": "pletcher",
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
-    "url": "https://github.com/learn-co-curriculum/listening-to-nodes/issues"
+    "url": "https://github.com/learn-co-curriculum/konami-code-lab/issues"
   },
-  "homepage": "https://github.com/learn-co-curriculum/listening-to-nodes#readme",
+  "homepage": "https://github.com/learn-co-curriculum/konami-code-lab#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
+    "expect": "^1.20.2",
     "jsdom": "^9.2.1",
     "mocha": "^2.5.3",
     "mocha-jsdom": "^1.1.0",
