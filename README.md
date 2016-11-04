@@ -7,7 +7,7 @@ Listening to Nodes
 2. Trigger event listeners on DOM nodes
 3. Explain the difference between bubbling and capturing events
 
-## Say what?
+## Say what?rertret
 
 We've seen that we can easily manipulate nodes in the DOM, and even create and remove elements at will. But how do we interact with nodes on the page?
 
